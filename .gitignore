@@ -1,0 +1,10 @@
+__pycache__/
+.DS_Store
+*.csv
+*.xlsx
+.vscode
+.env
+*.db
+.pytest_cache
+htmlcov
+.coverage
