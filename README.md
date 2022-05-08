@@ -1,2 +1,3 @@
 # data_analytics
-データ分析
+
+Data analytics study directory
