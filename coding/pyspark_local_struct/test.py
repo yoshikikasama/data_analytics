@@ -34,12 +34,6 @@ spark = SparkSession.builder \
 # csvデータ読み込み
 struct = StructType([
     StructField("code", StringType(), False),
-    StructField("kenmei", StringType(), False),
-    StructField("gengo", StringType(), False),
-    StructField("wareki", StringType(), False),
-    StructField("seireki", StringType(), False),
-    StructField("chu", StringType(), False),
-    StructField("sokei", StringType(), False),
     StructField("jinko_male", StringType(), False),
     StructField("jinko_female", StringType(), False),
     StructField("syain_bango", StringType(), False),
@@ -82,8 +76,6 @@ udf_encrypt_columns = udf(encrypt_columns)
 udf_todate = udf(to_date_ch, DateType())
 udf_date = udf(_cast_date, DateType())
 df_csv = df_csv \
-    .withColumn('Login_User_For_Join', udf_encrypt_columns(substring('syain_bango', 7, 6))) \
-    .withColumn('syain_bango', udf_encrypt_columns('syain_bango')) \
     .withColumn('date_test', udf_date('date_test', lit("%Y/%m/%d"))) \
     .withColumn('nyusya_nengetu', udf_todate('nyusya_nengetu', lit("%Y/%m/%d")))
 
