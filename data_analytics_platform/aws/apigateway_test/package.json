@@ -1,0 +1,14 @@
+{
+  "name": "kasama-spectrum-add-partition-tmp",
+  "description": "",
+  "version": "0.1.0",
+  "dependencies": {
+    "serverless-cloudformation-changesets": "0.0.2",
+    "serverless-reqvalidator-plugin": "^2.0.0"
+  },
+  "devDependencies": {
+    "serverless": "^3.22.0",
+    "serverless-aws-documentation": "^1.1.0",
+    "serverless-python-requirements": "^5.4.0"
+  }
+}
