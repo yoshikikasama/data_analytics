@@ -76,7 +76,7 @@ functions:
     handler: handler/handler.hello
     role: LambdaRole
     memorySize: 128
-    timeout: 30
+    timeout: 29
     environment:
       ENV: ${self:provider.stage}
       DB_ENDPOINT: kasama-dev-redshift1.cw2ddxcuwacm.ap-northeast-1.redshift.amazonaws.com

@@ -139,13 +139,13 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/kasama-spectrum-add-partition-tmp/dev/1665911603365-2022-10-16T09:13:23.365Z/kasama-spectrum-add-partition-tmp.zip"
+                "S3Key": "serverless/kasama-spectrum-add-partition-tmp/dev/1666073461743-2022-10-18T06:11:01.743Z/kasama-spectrum-add-partition-tmp.zip"
               },
               "Handler": "handler/handler.hello",
               "Runtime": "python3.9",
               "FunctionName": "kasama-spectrum-add-partition-tmp-dev-handler",
               "MemorySize": 128,
-              "Timeout": 30,
+              "Timeout": 29,
               "Environment": {
                 "Variables": {
                   "ENV": "dev",
@@ -184,14 +184,14 @@
               "LambdaRole"
             ]
           },
-          "SpectrumUnderscoreaddUnderscorepartitionLambdaVersionlAdbEU3vFWJfhpYNC2BpZPMhl1y15eeErlxQ5ULJwo": {
+          "SpectrumUnderscoreaddUnderscorepartitionLambdaVersionpy9FBY3qkYm879eKQuVPmK58jZufDFcNFGTx2RnxE8": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "SpectrumUnderscoreaddUnderscorepartitionLambdaFunction"
               },
-              "CodeSha256": "r5GsXxCYniX++I6mXofulXzPu6eOhReogyus/MEduQ8="
+              "CodeSha256": "u26TqHxkk0/LnAexj9O0QA2fZ4ebx75ahf+F1atuxt0="
             }
           },
           "ApiGatewayRestApi": {
@@ -289,7 +289,7 @@
               "SpectrumUnderscoreaddUnderscorepartitionLambdaPermissionApiGateway"
             ]
           },
-          "ApiGatewayDeployment1665911578197": {
+          "ApiGatewayDeployment1666073429080": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -315,11 +315,11 @@
                 }
               ]
             },
-            "DependsOn": "ApiGatewayDeployment1665911578197"
+            "DependsOn": "ApiGatewayDeployment1666073429080"
           },
           "ApiGatewayUsagePlan": {
             "Type": "AWS::ApiGateway::UsagePlan",
-            "DependsOn": "ApiGatewayDeployment1665911578197",
+            "DependsOn": "ApiGatewayDeployment1666073429080",
             "Properties": {
               "ApiStages": [
                 {
@@ -449,7 +449,7 @@
           "SpectrumUnderscoreaddUnderscorepartitionLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "SpectrumUnderscoreaddUnderscorepartitionLambdaVersionlAdbEU3vFWJfhpYNC2BpZPMhl1y15eeErlxQ5ULJwo"
+              "Ref": "SpectrumUnderscoreaddUnderscorepartitionLambdaVersionpy9FBY3qkYm879eKQuVPmK58jZufDFcNFGTx2RnxE8"
             },
             "Export": {
               "Name": "sls-kasama-spectrum-add-partition-tmp-dev-SpectrumUnderscoreaddUnderscorepartitionLambdaFunctionQualifiedArn"
@@ -616,7 +616,7 @@
         "handler": "handler/handler.hello",
         "role": "LambdaRole",
         "memorySize": 128,
-        "timeout": 30,
+        "timeout": 29,
         "environment": {
           "ENV": "dev",
           "DB_ENDPOINT": "kasama-dev-redshift1.cw2ddxcuwacm.ap-northeast-1.redshift.amazonaws.com",
@@ -649,7 +649,7 @@
         "package": {},
         "memory": 128,
         "runtime": "python3.9",
-        "versionLogicalId": "SpectrumUnderscoreaddUnderscorepartitionLambdaVersionlAdbEU3vFWJfhpYNC2BpZPMhl1y15eeErlxQ5ULJwo"
+        "versionLogicalId": "SpectrumUnderscoreaddUnderscorepartitionLambdaVersionpy9FBY3qkYm879eKQuVPmK58jZufDFcNFGTx2RnxE8"
       }
     },
     "resources": {
@@ -720,7 +720,7 @@
         ],
         "artifactsS3KeyDirname": "serverless/kasama-spectrum-add-partition-tmp/dev/code-artifacts",
         "artifact": "/Users/kasamayoshiki/Documents/code/git/data_analytics/data_analytics_platform/aws/apigateway_test/.serverless/kasama-spectrum-add-partition-tmp.zip",
-        "artifactDirectoryName": "serverless/kasama-spectrum-add-partition-tmp/dev/1665911603365-2022-10-16T09:13:23.365Z"
+        "artifactDirectoryName": "serverless/kasama-spectrum-add-partition-tmp/dev/1666073461743-2022-10-18T06:11:01.743Z"
       },
       "custom": {
         "$ref": "$[\"service\"][\"custom\"]"
@@ -748,7 +748,7 @@
     "artifact": "/Users/kasamayoshiki/Documents/code/git/data_analytics/data_analytics_platform/aws/apigateway_test/.serverless/kasama-spectrum-add-partition-tmp.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/kasama-spectrum-add-partition-tmp/dev/1665911603365-2022-10-16T09:13:23.365Z",
+    "artifactDirectoryName": "serverless/kasama-spectrum-add-partition-tmp/dev/1666073461743-2022-10-18T06:11:01.743Z",
     "artifact": "kasama-spectrum-add-partition-tmp.zip"
   }
 }
