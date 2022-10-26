@@ -1,16 +1,18 @@
-service: kasama-spectrum-add-partition-tmp
+service: spectrum-add-partition-tmp
 frameworkVersion: ‘3’
 provider:
   name: aws
-  runtime: python3.9
+  runtime: python3.8
   lambdaHashingVersion: 20201221
   stage: ${env:STAGE, "dev"}
   region: ap-northeast-1
   apiGateway:
 plugins:
   - serverless-python-requirements
+  - serverless-aws-response-schema-plugin
 package:
-  patterns:
+  exclude:
+    - node_modules/**
     - “!.vscode/**”
     - “!.git/**”
     - “!.gitignore”
@@ -20,7 +22,6 @@ package:
     - “!deploy-shell/**”
     - “!package*.json”
     - “!requirements.txt”
-    - “!node_modules/**”
     - “!__pycache__”
     - “!exclude-me.py”
     - “!exclude-me-dir/**”
@@ -38,7 +39,7 @@ custom:
     prod: ap-northeast-1
     dev: ap-northeast-1
 functions:
-  spectrum_add_partition:
+  test-kasama:
     name: ${self:service}-${self:provider.stage}-handler
     handler: handler/handler.lambda_handler
     role: LambdaRole
@@ -50,35 +51,26 @@ functions:
       - Ref: PythonRequirementsLambdaLayer
     events:
       - http:
-          path: /add_partition
+          path: /
           method: post
           private: true
           integration: lambda
-          request:
-            schemas:
-              application/json:
-                schema: ${file(models/partition_update_input.json)}
-                name: SpectrumAddPartitionInput
-                description: ‘Spectrum add partitionInput’
+          responseSchemas:
+            200: 
+              application/json: ${file(models/output.json)}
+            500: 
+              application/json: ${file(models/output.json)}
           response:
-            headers:
-              Content-Type: “‘application/json’”
             statusCodes:
-              200: 
-                parttern: ‘.*“statusCode”:200,.*’
-                template: $input.path(“$.errorMessage”)
-                headers:
-                  Content-Type: “‘application/json’”
+              200:
+                pattern: ‘’ # JSON response
+                template: $input.path(“$.body”) # JSON return object
               400:
-                pattern: ‘.*“statusCode”:400,.*’ # JSON response
+                pattern: ‘.*“Status”:400,.*’ # JSON response
                 template: $input.path(“$.errorMessage”) # JSON return object
-                headers:
-                  Content-Type: “‘application/json’”
               500:
-                pattern: ‘.*“statusCode”:500,.*’ # JSON response
+                pattern: ‘.*“Status”:500,.*’ # JSON response
                 template: $input.path(“$.errorMessage”) # JSON return object
-                headers:
-                  Content-Type: “‘application/json’”
 resources:
   Description: kasama Internal API
   Resources:

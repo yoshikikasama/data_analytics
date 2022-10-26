@@ -1,0 +1,10 @@
+{
+    "properties" : {
+        "status": {
+            "type": "string"
+        },
+        "ErrorReason": {
+            "type": "string"
+        }
+    }
+}
