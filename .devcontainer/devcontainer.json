@@ -70,9 +70,8 @@
           "editor.defaultFormatter": "dorzey.vscode-sqlfluff",
           "editor.formatOnSave": false
         },
-        "sqlfluff.config": "/workspaces/system/.devcontainer/.sqlfluff",
+        "sqlfluff.config": "/workspaces/data_analytics/.devcontainer/.sqlfluff",
         "sqlfluff.executablePath": "/home/vscode/.local/bin/sqlfluff",
-        // "sqlfluff.dialect": "postgres", // PostgreSQLに対応したSQL Fluffの設定
         "sqlfluff.linter.run": "onSave", // ファイル保存時に自動実行
         "sqlfluff.formatter.lineLength": 80, // SQLコードの整形ルール
         "sqlfluff.experimental.format.executeInTerminal": true,
