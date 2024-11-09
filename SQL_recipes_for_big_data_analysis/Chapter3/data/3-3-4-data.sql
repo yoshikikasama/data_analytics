@@ -31,3 +31,16 @@ VALUES
   , (100002, 'D002', 300)
   , (100003, 'A001', 300)
 ;
+
+
+DROP TABLE IF EXISTS purchase_log;
+CREATE TABLE purchase_log (
+    purchase_id integer
+  , product_ids     varchar(255)
+);
+
+INSERT INTO purchase_log
+VALUES
+    (10001, 'A001,A002,A003')
+  , (10002, 'D001,D002')
+  ,  (10003, 'A001')
